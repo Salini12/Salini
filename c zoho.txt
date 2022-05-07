@@ -1,0 +1,142 @@
+//TASK 1
+//LOAD CASH TO ATM
+#include<stdio.h>
+int main()
+{
+    int n,i,c;
+    printf("Number of rows: ");
+    scanf("%d",&n);
+    int a[n];//Denominations
+    int b[n];//number notes
+    for(i=0;i<n;i++)
+    {
+        printf("Denomination : ");
+        scanf("%d",&a[i]);//getting Denominationsfrom user
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("Denonimation : ");
+        scanf("%d",&b[i]);//getting number notes from user
+    }
+    for(i=0;i<n;i++)
+    {
+        c = a[i]*b[i];//calculating values by multiplying denomination and number
+        printf("Value : %d\n",c);
+    }
+    
+}
+
+
+//TASK2:
+//MAINTAIN CUSTOMER DETAILS
+#include <stdio.h>
+int main(void) {
+  struct Customer{
+    int no;
+    char Ah[100];
+    int pin;
+    int bal;
+  };
+  struct Customer c1,c2,c3,c4,c5;
+  printf("Acc N0: \n");
+  scanf("%d%d%d%d%d", &c1.no,&c2.no,&c3.no,&c4.no,&c5.no);
+  printf("Account Holder: \n");
+  scanf("%s%s%s%s%s", c1.Ah,c2.Ah,c3.Ah,c4.Ah,c5.Ah);
+  printf("Pin Number: \n");
+  scanf("%d%d%d%d%d", &c1.pin,&c2.pin,&c3.pin,&c4.pin,&c5.pin);
+  printf("Account Balance: \n");
+  scanf("%d%d%d%d%d", &c1.bal,&c2.bal,&c3.bal,&c4.bal,&c5.bal);
+}
+
+//TASK 3:
+//HANDLE ATM PROCESS
+#include<stdio.h>
+int main()
+{
+    int bal=300000;
+    int ac=98765432;
+    int pin=1234;
+    int atm=100000;
+    int choice;
+    printf("Choose an option : \n\t 1.check balance \n\t 2.withdraw money \n\t 3. transfer money\n\t 4. check atm balance");
+    printf("\nEnter choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+         if(choice ==1)
+         printf("%d",bal);
+         break;
+        case 2:
+         if(choice ==2)
+         printf("Enter amount to withdraw:");
+         int wa;
+         scanf("%d",&wa);
+          if(wa<100||wa>10000)
+           printf("Invalid amount, Try again between 100 to 10000");
+          else if(wa<=atm&&wa<=bal){
+            printf("Please collect your cash");
+            atm=atm-wa;
+            bal=bal-wa;
+               printf("Your account balance is : %d",bal);
+         case 3:
+          if(choice==3)
+          {
+           printf("Enter the amount to be transferred:");
+           int wa;
+           scanf("%d",&wa);
+           if(wa<1000||wa>10000)
+              printf("Enter amount between 1000 to 10000");
+           else if(wa<=bal){
+            printf("Enter account number :");
+            int ent;
+            scanf("%d",&ent);
+            printf("Renter account number :");
+             int rent;
+             scanf("%d",&rent);
+             if(ent==rent)
+               printf("Transaction success");
+                 bal=bal-wa;
+                 printf("Your account balance is : %d" ,bal);
+           }
+          else
+           printf("Account number doesn't Match.Try again");
+        }
+   }
+   case 4:
+    if(choice ==4)
+     printf("ATM balance is %d",atm);
+}
+}
+
+
+//TASK 4:
+
+//CHECK ATM BALANCE
+#include<stdio.h>
+int main()
+{
+    int n,i,sum=0,value;
+    printf("Number of rows : ");
+    scanf("%d",&n);
+    int a[n];//Denomination as 2000,500,100
+    int b[n];//Number of rupees notes
+    for(i=0;i<n;i++)
+    {
+        printf("Denominations : ");
+        scanf("%d",&a[i]);//getting denominations from user
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("Number : ");
+        scanf("%d",&b[i]);//getting number of notes from user
+    }
+    for(i=0;i<n;i++)
+    {
+        value= a[i]*b[i];//total value for each denomination
+        printf("Value : %d\n",value);
+        sum = sum+value;
+    }
+    printf("Total Amount available in the ATM = %d",sum);
+    
+}
